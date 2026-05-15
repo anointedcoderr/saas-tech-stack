@@ -1,0 +1,23 @@
+{
+  "name": "@anointedcoder/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared ESLint config for the AnointedCoder platform.",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "next.js",
+    "nest.js",
+    "library.js"
+  ],
+  "peerDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "@typescript-eslint/parser": "^8.8.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-unused-imports": "^4.1.4"
+  }
+}

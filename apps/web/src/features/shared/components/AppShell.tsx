@@ -1,4 +1,8 @@
+'use client';
+
 import * as React from 'react';
+
+import { adminNav, studentNav, superAdminNav, tutorNav } from '@/features/shared/lib/nav-configs';
 
 import { MobileNav } from './MobileNav';
 import { Sidebar, type SidebarNavItem } from './Sidebar';
@@ -7,9 +11,15 @@ import { UserMenu } from './UserMenu';
 
 import type { Role } from '@anointedcoder/types';
 
+const navByRole: Record<Role, SidebarNavItem[]> = {
+  STUDENT: studentNav,
+  TUTOR: tutorNav,
+  ADMIN: adminNav,
+  SUPER_ADMIN: superAdminNav,
+};
+
 interface AppShellProps {
   role: Role;
-  navItems: SidebarNavItem[];
   profileHref: string;
   pageTitle: string;
   pageDescription?: string;
@@ -19,13 +29,13 @@ interface AppShellProps {
 
 export function AppShell({
   role,
-  navItems,
   profileHref,
   pageTitle,
   pageDescription,
   actions,
   children,
 }: AppShellProps) {
+  const navItems = navByRole[role];
   return (
     <div className="bg-background flex min-h-screen">
       <Sidebar role={role} items={navItems} />
